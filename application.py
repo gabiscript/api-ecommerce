@@ -8,7 +8,7 @@ application.config['SECRET_KEY'] = "minha_chave_123"
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ecommerce.db'
 login_manager = LoginManager()
 db = SQLAlchemy(application)
-login_manager.init_application(application)
+login_manager.init_app(application)
 login_manager.login_view = 'login'
 CORS(application)
 
@@ -47,7 +47,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return jsonify({"message": "Logout successfully"}), 401
+    return jsonify({"message": "Logout successfully"})
 
 @application.route('/api/products/add', methods=["POST"])
 @login_required
@@ -169,5 +169,6 @@ def cart_checkout():
         db.session.delete(cart_item)
     db.session.commit()
     return jsonify({'message': 'Checkout successful. Cart has been cleared'})
-    
-application = Flask(__name__)
+
+with application.app_context():
+    db.create_all()
