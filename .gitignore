@@ -1,0 +1,21 @@
+# Ignore virtual environment directory
+venv/
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore database file
+instance/
+instance/ecommerce.db
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment-specific files (e.g., for IDEs)
+.vscode/
+.idea/
+
+# Ignore system files (e.g., macOS .DS_Store)
+.DS_Store
