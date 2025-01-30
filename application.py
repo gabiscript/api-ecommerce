@@ -169,5 +169,5 @@ def cart_checkout():
         db.session.delete(cart_item)
     db.session.commit()
     return jsonify({'message': 'Checkout successful. Cart has been cleared'})
-if __name__ == "__main__":
-    application.run(debug=True)
+    
+application = Flask(__name__)
