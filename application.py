@@ -97,7 +97,7 @@ def update_product(product_id):
         product.price = data['price']
 
     if 'description' in data:
-        product.price = data['description']
+        product.description = data['description']
 
     db.session.commit()
     return jsonify({"message": "Product updated successfully"})
@@ -111,7 +111,7 @@ def get_products():
             "id": product.id,
             "name": product.name,
             "price": product.price}
-        product_list.applicationend(product_data)
+        product_list.append(product_data)
     return jsonify(product_list)
 
 #Checkout 
@@ -150,7 +150,7 @@ def view_cart():
     cart_content = []
     for cart_item in cart_items:
         product = Product.query.get(cart_item.product_id)
-        cart_content.applicationend(
+        cart_content.append(
             {
                 'id': cart_item.id,
                 'user_id': cart_item.user_id,
