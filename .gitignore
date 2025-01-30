@@ -19,3 +19,5 @@ instance/ecommerce.db
 
 # Ignore system files (e.g., macOS .DS_Store)
 .DS_Store
+
+instance/
